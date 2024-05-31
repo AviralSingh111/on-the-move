@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import SliderPopup from './components/SliderPopup';
+const App = () => {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
-function App() {
+  const openPopup = () => {
+    setIsPopupOpen(true);
+  };
+
+  const closePopup = () => {
+    setIsPopupOpen(false);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="relativ flex justify-center items-center">
+      <button
+        className="px-4 py-2 mt-20 bg-blue-600 text-white rounded"
+        onClick={openPopup}
+      >
+        Open Slider
+      </button>
+      {isPopupOpen && <SliderPopup onClose={closePopup} />}
     </div>
   );
-}
+};
 
 export default App;
