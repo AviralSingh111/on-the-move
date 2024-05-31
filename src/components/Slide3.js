@@ -5,7 +5,7 @@ const Slide3 = ({ onReadMore, onReadLess, baseheight }) => {
   
   useEffect(()=>{
    baseheight();
-  },[])
+  },)
   const [isExpanded, setIsExpanded] = useState(false);
 
   const handleToggle = () => {
